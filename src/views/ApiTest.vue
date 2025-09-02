@@ -19,12 +19,12 @@ export default {
   methods: {
     getFileInfo(e) {
       const file_name = e.target.files[0].name;
-      const file = e.target.file[0]; // Stream -> text 변환
+      const file = e.target.files[0]; // Stream -> text 변환
 
       let fr = new FileReader();
       fr.onload = (ev) => {
         let base64Txt = ev.target.result;
-        console.log(base64Txt.slice(base64Txt.indexOf(';base64') + 8));
+        //  console.log(base64Txt.slice(base64Txt.indexOf(';base64') + 8));
         const data = base64Txt.slice(base64Txt.indexOf(';base64') + 8);
         axios
         .post('/upload/' + file_name, {param: data})

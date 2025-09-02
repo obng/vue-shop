@@ -49,9 +49,10 @@ export default {
   methods: {
     goToDetail(product_id) {
       this.$router.push({
+        // path:'/detail',
         name: 'ProductDetail',
         query: {product_id: product_id},
-        
+
       })
     }
   },  
